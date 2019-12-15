@@ -1,5 +1,5 @@
 var generateBtn = document.querySelector("#generate");
-
+var copyBtn = document.querySelector("#copy");
 function generatePassword() {
   // Make another variable that takes n the password length (Hint: parseInt for the prompt) and make it a length variable
   var length = parseInt(prompt("How many characters should your password have ?"));
@@ -39,23 +39,23 @@ function generatePassword() {
   console.log(numberCharactersInput);
 
   if (numberCharactersInput) {
-      characterBank.push(numberCharacters);
+    characterBank.push(numberCharacters);
   }
   var lowerCaseInput = confirm("click ok ro confirm lower case letters");
   console.log(lowerCaseInput);
 
   if (lowerCaseInput) {
     characterBank.push(lowerCase);
-}
+  }
 
   var upperCaseInput = confirm("click Ok to confirm upper case letters");
   console.log(upperCaseInput);
 
   if (upperCaseInput) {
     characterBank.push(upperCase);
-}
+  }
 
-  // if we didn't select any character type...then characterBank will still be an empty array
+  
   if (characterBank.length === 0) {
     alert("You didn't pick any characters!");
     return false;
@@ -64,14 +64,14 @@ function generatePassword() {
   // loop through passwordLength
   for (var i = 0; i < length; i++) {
     // select a random character set
-    var randomCharacterSet = characterBank[Math.floor(Math.random() * characterBank.length )]
+    var randomCharacterSet = characterBank[Math.floor(Math.random() * characterBank.length)]
     // select a random character from character set
-    var randomCharacter = randomCharacterSet[Math. floor(Math.random() * randomCharacterSet.length)]
+    var randomCharacter = randomCharacterSet[Math.floor(Math.random() * randomCharacterSet.length)]
     // push selected character into password arrayp
     password.push(randomCharacter);
   }
 
-  // return password and join it together as a string
+  
   return password.join("");
 
 }
@@ -84,3 +84,13 @@ function writePassword() {
 }
 
 generateBtn.addEventListener("click", writePassword);
+
+function copyToClipboard() {
+ var passwordText = document.querySelector("#password"); 
+  passwordText.select();
+  passwordText.setSelectionRange(0, 999999);
+  document.execCommand("copy");
+  alert("your password was copied to your clipboard" + passwordText.value);
+}
+
+copyBtn.addEventListener("click", copyToClipboard)

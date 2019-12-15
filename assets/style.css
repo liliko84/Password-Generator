@@ -131,10 +131,9 @@ button[disabled] {
     font-size: 0.8rem;
   }
 }
-.copy{
-  background-color: azure;
+#copy[disabled]{
+  background-color:#4aaaa5;
   font-size: 1rem;
-    margin: 16px 0px 0px 0px;
-    padding: 10px 15px
-    
+  margin: 16px 0px 0px 0px;
+  padding: 20px 20px
 }
